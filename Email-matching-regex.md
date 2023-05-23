@@ -1,16 +1,12 @@
 # Email Matching Regex Tutorial
 
-Introductory paragraph (replace this with your text)
-
-This tutorial serves to explain how a email matching regular expression works.
+The purpose of this tutorial is to demonstrate understanding of regular expressions by explaining how an email matching regex works.
 
 ## Summary
 
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+The regular expression I will be describing is an email matching regex. The regex takes the form: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
 
-I will be explaining the regular expression: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
-
-This regex is used to validate email addresses.
+The regex creates a pattern in the format of "username@domain.extension" and can be used to search for any email in a text document.
 
 ## Table of Contents
 
@@ -18,13 +14,8 @@ This regex is used to validate email addresses.
 - [Quantifiers](#quantifiers)
 - [OR Operator](#or-operator)
 - [Character Classes](#character-classes)
-- [Flags](#flags)
 - [Grouping and Capturing](#grouping-and-capturing)
 - [Bracket Expressions](#bracket-expressions)
-- [Greedy and Lazy Match](#greedy-and-lazy-match)
-- [Boundaries](#boundaries)
-- [Back-references](#back-references)
-- [Look-ahead and Look-behind](#look-ahead-and-look-behind)
 
 ## Regex Components
 
@@ -34,26 +25,30 @@ The regex includes the anchors '^' and '\$' The ^ anchor signifies that the stri
 
 ### Quantifiers
 
-The quantifier, '{2,6}' is used to make sure the preceding string has between 2 and 6 characters to match how email extentions work.
+The quantifier, '{2,6}' is used to make sure the preceding string has between 2 and 6 characters to match how email extentions work. Similarly the quantifier '+' is used multiple times to indicate that what the characters that precede it match the pattern in the bracket expression one or more times.
 
 ### OR Operator
 
+In this regex, the sections surrounded by square brackets have an implicit OR operator between the different characters used in the pattern. For example, the first section '[a-z0-9_\.-]' could alternatively be written as '[a-z|0-9|_|\.-].
+
 ### Character Classes
 
-### Flags
+This regex uses the character class /d which is equivalent to the bracket expression [0-9]. It matches up to any arabic numeral digit.
 
 ### Grouping and Capturing
 
+This regex uses multiple grouping constructs to split the expression into multiple subexpressions. Parenthesis are used to create subexpressions for the username '([a-z0-9_\.-]+)', domain '([\da-z\.-]+)', and email extension '([a-z\.]{2,6})'.
+
 ### Bracket Expressions
 
-### Greedy and Lazy Match
+This regex contains three bracket expressions for the purpose of outlining the patterns for different parts of an email address.
 
-### Boundaries
+[a-z0-9_\.-] - specifies that the email address can have a username containing any lowercase letter, any number, as well as the special characters '\_' and '.'.
 
-### Back-references
+[\da-z\.-] - specifies that the domain name can only contain lowercase letters, any number, as well as the special character '.'.
 
-### Look-ahead and Look-behind
+[a-z\.] - specifies that the email extension can only contain lowercase letters and the special character '.'.
 
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+Nnamdi Onyeije is a student in the Georgia Tech Full Stack Web Development Coding Boot Camp. His github profile can be found at https://github.com/nnamdionyeije.
